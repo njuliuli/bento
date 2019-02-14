@@ -51,7 +51,8 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "{{ user `template` }}"
+      "vm_name": "{{ user `template` }}",
+      "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     },
     {
       "boot_command": [
@@ -95,7 +96,8 @@
         "memsize": "{{ user `memory` }}",
         "numvcpus": "{{ user `cpus` }}"
       },
-      "vmx_remove_ethernet_interfaces": true
+      "vmx_remove_ethernet_interfaces": true,
+      "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     },
     {
       "boot_command": [
@@ -146,7 +148,8 @@
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "type": "parallels-iso",
-      "vm_name": "{{ user `template` }}"
+      "vm_name": "{{ user `template` }}",
+      "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     },
     {
       "boot_command": [
@@ -181,7 +184,8 @@
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
       "type": "qemu",
-      "vm_name": "{{ user `template` }}"
+      "vm_name": "{{ user `template` }}",
+      "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     }
   ],
   "post-processors": [
@@ -235,6 +239,7 @@
     "no_proxy": "{{env `no_proxy`}}",
     "preseed_path": "debian-8/preseed.cfg",
     "template": "debian-9.7-amd64",
-    "version": "TIMESTAMP"
+    "version": "TIMESTAMP",
+    "vnc_bind_address": "0.0.0.0"
   }
 }
