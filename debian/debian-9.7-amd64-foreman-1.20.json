@@ -152,6 +152,7 @@
       "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     },
     {
+      "accelerator": "kvm",
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
@@ -198,6 +199,7 @@
   ],
   "provisioners": [
     {
+      "type": "shell",
       "environment_vars": [
         "HOME_DIR=/home/vagrant",
         "http_proxy={{user `http_proxy`}}",
@@ -218,12 +220,15 @@
         "../_common/parallels.sh",
         "scripts/cleanup.sh",
         "../_common/minimize.sh"
-      ],
-      "type": "shell"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/install_foreman.yml"
     }
   ],
   "variables": {
-    "box_basename": "debian-9.7",
+    "box_basename": "debian-9.7-foreman",
     "build_timestamp": "{{isotime \"20060102150405\"}}",
     "cpus": "4",
     "disk_size": "65536",
@@ -237,10 +242,10 @@
     "memory": "4096",
     "mirror": "https://cdimage.debian.org/debian-cd/current",
     "mirror_directory": "amd64/iso-cd",
-    "name": "debian-9.7",
+    "name": "debian-9.7-foreman",
     "no_proxy": "{{env `no_proxy`}}",
     "preseed_path": "debian-8/preseed.cfg",
-    "template": "debian-9.7-amd64",
+    "template": "debian-9.7-amd64-foreman-1.20",
     "version": "TIMESTAMP",
     "vnc_bind_address": "0.0.0.0"
   }

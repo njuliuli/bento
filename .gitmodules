@@ -1,0 +1,6 @@
+[submodule "debian/ansible/roles/ansible-fqdn"]
+	path = debian/ansible/roles/ansible-fqdn
+	url = git@github.com:holms/ansible-fqdn.git
+[submodule "debian/ansible/roles/ansible-foreman"]
+	path = debian/ansible/roles/ansible-foreman
+	url = git@github.com:njuliuli/ansible-role-foreman.git

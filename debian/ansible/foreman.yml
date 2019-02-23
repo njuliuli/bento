@@ -1,0 +1,19 @@
+---
+
+- name: install foreman
+  import_role:
+    # git@github.com:njuliuli/ansible-role-foreman.git
+    name: ansible-foreman
+  vars:
+    # note quotes are necessary, or will be converted into 1.2
+    foreman_version: "1.20"
+    foreman_hostname: theforeman.example.com
+    foreman_plugins:
+      - ansible
+      - remote-execution
+    foreman_proxy_plugins:
+      - ansible
+      - remote-execution-ssh
+  become: true
+
+...
