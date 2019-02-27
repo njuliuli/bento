@@ -224,7 +224,7 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "ansible/install_foreman.yml"
+      "playbook_file": "../../ansible/bento.yml"
     }
   ],
   "variables": {
