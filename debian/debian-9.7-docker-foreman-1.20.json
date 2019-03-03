@@ -1,0 +1,34 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "python:2-stretch",
+      "run_command": [
+        "-d",
+        "-i",
+        "-t",
+        "--hostname",
+        "foreman.local",
+        "{{.Image}}",
+        "/bin/bash"
+      ],
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "ansible",
+      "user": "root",
+      "playbook_file": "../../ansible/bento-docker.yml"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "foreman",
+        "tag": "latest"
+      }
+    ]
+  ]
+}
