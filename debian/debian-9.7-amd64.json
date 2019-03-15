@@ -152,6 +152,7 @@
       "vnc_bind_address": "{{ user `vnc_bind_address` }}"
     },
     {
+      "accelerator": "kvm",
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
